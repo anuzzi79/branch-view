@@ -1,0 +1,169 @@
+.terminal-node {
+  width: 720px;
+  height: 520px;
+  background: #080a0f;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 34px var(--node-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-node-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 6px 10px;
+  background: #12161f;
+  border-bottom: 1px solid var(--border);
+  cursor: grab;
+  user-select: none;
+}
+
+.terminal-node-header:active {
+  cursor: grabbing;
+}
+
+.terminal-lights {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.terminal-light {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+}
+
+.terminal-light.red {
+  background: #ef4444;
+}
+
+.terminal-light.yellow {
+  background: #eab308;
+}
+
+.terminal-light.green {
+  background: #22c55e;
+}
+
+.terminal-node-title {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #f8fafc;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.terminal-node-status {
+  min-width: 54px;
+  color: #94a3b8;
+  font-size: 11px;
+  text-align: right;
+}
+
+.terminal-node-status.running {
+  color: #5eead4;
+}
+
+.terminal-node-status.error,
+.terminal-node-status.exited {
+  color: #fca5a5;
+}
+
+.terminal-action,
+.terminal-close {
+  height: 24px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #cbd5e1;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-action {
+  padding: 0 8px;
+  border-color: #263244;
+  background: #172033;
+}
+
+.terminal-action:hover {
+  border-color: #38bdf8;
+  color: #f8fafc;
+}
+
+.terminal-close {
+  width: 24px;
+  font-size: 14px;
+}
+
+.terminal-close:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+.terminal-node-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 10px;
+  background: #0d1119;
+  border-bottom: 1px solid #1f2937;
+  color: #94a3b8;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 10px;
+}
+
+.terminal-node-meta span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.terminal-node-body {
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+  background: #080a0f;
+  position: relative;
+  outline: none;
+  cursor: text;
+}
+
+.terminal-host {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.terminal-host .xterm {
+  height: 100%;
+}
+
+.terminal-host .xterm-viewport {
+  overflow-y: auto;
+}
+
+.terminal-handle {
+  width: 12px !important;
+  height: 12px !important;
+  background: #38bdf8 !important;
+  border: 2px solid #080a0f !important;
+}
+
+.terminal-handle:hover {
+  background: #f5c542 !important;
+}

@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-canvas);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* --- Toolbar (collapsing vertical sidebar) --- */
+.toolbar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  width: 40px;
+  max-height: 40px;
+  padding: 0;
+  background: var(--bg-toolbar);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px var(--node-shadow);
+  overflow: hidden;
+  transition:
+    width 0.2s ease,
+    max-height 0.2s ease,
+    padding 0.2s ease,
+    border-radius 0.2s ease,
+    gap 0.2s ease;
+}
+
+.toolbar:hover,
+.toolbar:focus-within {
+  width: 240px;
+  max-height: 480px;
+  padding: 12px;
+  border-radius: 12px;
+  gap: 10px;
+}
+
+.toolbar > *:not(.toolbar-handle) {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transition:
+    opacity 0.12s ease,
+    max-height 0.18s ease;
+}
+
+.toolbar:hover > *:not(.toolbar-handle),
+.toolbar:focus-within > *:not(.toolbar-handle) {
+  opacity: 1;
+  max-height: 240px;
+  pointer-events: auto;
+  transition:
+    opacity 0.18s ease 0.08s,
+    max-height 0.2s ease;
+}
+
+.toolbar-handle {
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  user-select: none;
+  cursor: default;
+  transition: opacity 0.15s ease, height 0.2s ease;
+}
+
+.toolbar:hover .toolbar-handle,
+.toolbar:focus-within .toolbar-handle {
+  height: 28px;
+  opacity: 0.4;
+}
+
+.add-chat-btn {
+  padding: 8px 18px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.add-chat-btn:hover {
+  background: var(--accent-hover);
+}
+
+.add-chat-btn:active {
+  background: var(--accent-active);
+}
+
+.terminal-profile-select {
+  height: 32px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--controls-bg);
+  color: var(--text);
+  font-size: 13px;
+  padding: 0 10px;
+  outline: none;
+}
+
+.terminal-profile-select:focus {
+  border-color: var(--accent);
+}
+
+.toolbar-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* --- Theme picker --- */
+.theme-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.theme-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+.theme-swatch:hover {
+  transform: scale(1.15);
+}
+
+.theme-swatch.active {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--bg-canvas);
+}
+
+/* --- React Flow theme overrides (use CSS vars) --- */
+.react-flow__background {
+  background-color: var(--bg-canvas) !important;
+}
+
+.react-flow__controls button {
+  background: var(--controls-bg) !important;
+  border-color: var(--controls-border) !important;
+  fill: var(--text) !important;
+}
+
+.react-flow__controls button:hover {
+  background: var(--btn-bg) !important;
+}
+
+.react-flow__minimap {
+  background: var(--minimap-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__edge-path {
+  stroke: var(--accent);
+}
+
+.react-flow__node {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+.react-flow__node.selected {
+  box-shadow: 0 0 0 2px var(--selection) !important;
+  border-radius: 8px;
+}
