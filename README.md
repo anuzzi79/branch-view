@@ -51,6 +51,11 @@ npm run dist:linux      # AppImage + .deb
 - **xterm.js** — terminal rendering.
 - **electron-vite** / **electron-builder** — dev server and packaging.
 
+## Origins
+
+Branch View started as a fork of [chatvas](https://github.com/Kaleab-Ayenew/chatvas) by Kaleab Ayenew — an infinite canvas for branching ChatGPT conversations. The Electron + React Flow scaffolding and the node-canvas UX come from that project. Branch View pivots the concept from embedded chat webviews to real PTY sessions and from ChatGPT branches to Codex / Claude Code session forks.
+
 ## License
 
 MIT
+
